@@ -8,8 +8,8 @@ import Reports from './components/Reports/Reports.jsx'
 function App() {
 	return (
 		<TransactionsProvider>
-			<div className="min-h-screen w-full max-w-5xl mx-auto px-4 py-6 flex flex-col items-center gap-6">
-				<h1 className="text-3xl font-bold tracking-tight">Gelir-Gider Takip Uygulaması</h1>
+			<div className="min-h-screen w-full mx-auto px-4 md:px-6 py-5 flex flex-col items-center gap-6 sm:gap-8 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-5xl">
+				<h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-center">Gelir-Gider Takip Uygulaması</h1>
 				<Dashboard />
 				<AddTransactionForm />
 				<TransactionList />

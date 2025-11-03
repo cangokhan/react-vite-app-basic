@@ -9,15 +9,19 @@ export default function TransactionList() {
 	}
 
 	return (
-		<ul className="w-full max-w-3xl divide-y divide-neutral-800">
+		<ul className="w-full max-w-3xl">
 			{transactions.map((t) => (
-				<li key={t.id} className="flex items-center justify-between gap-2 py-3">
-					<span className="min-w-20 text-neutral-400">{formatDate(t.date)}</span>
-					<span className="flex-1 truncate">{t.category}{t.note ? ` - ${t.note}` : ''}</span>
-					<span className={`min-w-28 text-right font-semibold ${t.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}`}>
-						{t.type === 'income' ? '+' : '-'}{formatAmount(t.amount)}
-					</span>
-					<button className="rounded-md border border-neutral-700 px-3 py-1 text-sm hover:bg-neutral-800" onClick={() => deleteTransaction(t.id)}>Sil</button>
+				<li key={t.id} className="flex items-center gap-3 justify-between py-3 px-3 rounded-lg border border-neutral-800 bg-neutral-900/40 shadow-sm mb-2">
+					<div className="flex min-w-0 flex-col sm:flex-row sm:items-center sm:gap-3">
+						<span className="text-xs sm:text-sm text-neutral-400 whitespace-nowrap">{formatDate(t.date)}</span>
+						<span className="truncate">{t.category}{t.note ? ` - ${t.note}` : ''}</span>
+					</div>
+					<div className="flex items-center gap-3">
+						<span className={`text-right font-semibold ${t.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}`}>
+							{t.type === 'income' ? '+' : '-'}{formatAmount(t.amount)}
+						</span>
+						<button aria-label="Sil" className="rounded-md border border-neutral-700 px-3 py-1 text-sm hover:bg-neutral-800" onClick={() => deleteTransaction(t.id)}>Sil</button>
+					</div>
 				</li>
 			))}
 		</ul>

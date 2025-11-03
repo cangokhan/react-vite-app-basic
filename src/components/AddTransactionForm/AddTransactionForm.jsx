@@ -29,12 +29,12 @@ export default function AddTransactionForm() {
 		setNote('')
 	}
 
-	const inputCls = 'rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60'
+	const inputCls = 'w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60'
 	const selectCls = inputCls
-	const btnCls = 'rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-4 py-2'
+	const btnCls = 'w-full sm:w-auto rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-4 py-2'
 
 	return (
-		<form onSubmit={handleSubmit} className="flex flex-wrap justify-center gap-2">
+		<form onSubmit={handleSubmit} className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2">
 			<select className={selectCls} value={type} onChange={(e) => setType(e.target.value)}>
 				<option value={TRANSACTION_TYPES.INCOME}>Gelir</option>
 				<option value={TRANSACTION_TYPES.EXPENSE}>Gider</option>
@@ -47,7 +47,7 @@ export default function AddTransactionForm() {
 					<option key={c} value={c}>{c}</option>
 				))}
 			</select>
-			<input className={inputCls + ' w-48'} type="text" placeholder="Açıklama" value={note} onChange={(e) => setNote(e.target.value)} />
+			<input className={inputCls + ' lg:col-span-2'} type="text" placeholder="Açıklama" value={note} onChange={(e) => setNote(e.target.value)} />
 			<button className={btnCls} type="submit">Ekle</button>
 		</form>
 	)
